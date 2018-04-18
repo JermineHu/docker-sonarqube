@@ -11,7 +11,8 @@ ENV SONAR_VERSION=7.1 \
 EXPOSE 9000
 RUN addgroup -S sonarqube && adduser -S -G sonarqube sonarqube
 RUN set -x \
-    && apk add --no-cache --virtual .build-deps gnupg unzip libressl wget su-exec\
+    && apk add --no-cache su-exec \
+    && apk add --no-cache --virtual .build-deps gnupg unzip libressl wget \
     && mkdir /opt \
     && cd /opt \
     && wget -O sonarqube.zip --no-verbose https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-$SONAR_VERSION.zip \
