@@ -22,7 +22,7 @@ The server is started this way:
 
 
 ```
-$ docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
+$ docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 jermine/sonarqube
 ```
 
 By default you can login as admin with password admin, see authentication.
@@ -54,7 +54,7 @@ $ docker run -d --name sonarqube \
     -e SONARQUBE_JDBC_USERNAME=sonar \
     -e SONARQUBE_JDBC_PASSWORD=sonar \
     -e SONARQUBE_JDBC_URL=jdbc:postgresql://localhost/sonar \
-    sonarqube
+    jermine/sonarqube
 ```
 
 # Run SonarQube with a PostgreSQL database
@@ -73,7 +73,7 @@ version: "2"
 
 services:
   sonarqube:
-    image: sonarqube
+    image: jermine/sonarqube
     ports:
       - "9000:9000"
     networks:
